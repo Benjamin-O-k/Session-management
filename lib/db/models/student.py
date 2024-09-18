@@ -18,7 +18,7 @@ class Student(Base):
     def all_classes(self):
         return self.lessons()
 
-    # list all lecturers that have been to class
+    # list all lecturers that have been to students class
     def all_lecturers(self):
         return [lesson.lecturer for lesson in self.lessons]
 

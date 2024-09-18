@@ -146,6 +146,17 @@ def delete_student():
     else:
         print(f"The student with ID {id} has not been found. Please check the list of students and try again")
 
+def stud_lecturer():
+    print("All students and their lecturers")
+    students = Student.all_lecturers()
+    for student in students:
+        print(f"{student.name}: {student.lecturer}")
+
+def stud_class():
+    print("All students and their lessons:")
+    students = Student.all_classes()
+    for student in students:
+        print(f"{student.name}: {student.lesson}")
 
 # lecturer functions
 def add_lecturer(name,profession):
@@ -206,6 +217,17 @@ def delete_lecturer():
     else:
         print(f"The lecturer with ID {id} has not been found. Please check and try again")
 
+def lec_classes():
+    print("All lecturers and their classes:")
+    lecturers = Lecturer.all_classes()
+    for lecturer in lecturers:
+        print(f"{lecturer.name}: {lecturer.lesson}")
+
+def lec_students():
+    print("All lecturers and their students:")
+    lecturers = Lecturer.all_students()
+    for lecturer in lecturers:
+        print(f"{lecturer.name}: {lecturer.students}")
 
 
 
@@ -213,11 +235,42 @@ def delete_lecturer():
 
 
 
+# Main menu
+def main_menu():
+    while True:
+        print("\nChoose an option:")
+        print("1. Add a lesson")
+        print("2. Create a lesson")
+        print("3. Find a lesson by name")
+        print("4. List all lessons")
+        print("5. List all students present in a lesson")
+        print("6. Find a student by ID")
+        print("7. Update a student")
+        print("8. Delete a student")
+        print("9. Add a lecturer")
+        print("10. Create a lecturer")
+        print("11. Find a lecturer by name")
+        print("12. Find a lecturer by ID")
+        print("13. Update a lecturer")
+        print("14. Delete a lecturer")
+        print("15. Exit")
 
+        choice = input("Enter your choice: ")
 
+        if choice == '1':
+            add_lesson()
+        elif choice == '2':
+            create_lesson()
+        elif choice == '3':
+            find_lesson_by_name()
 
 
 
 def exit_program():
-    print("Exiting the program......\nGoodbye!")
-    exit()
+    x = input("Are you sure you want to exit the program:(y/n)")
+    if x.lower() == 'y':
+        print("Exiting the program...")
+        exit()
+    else:
+        print("Program will continue...")
+        main_menu()
