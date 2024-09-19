@@ -244,18 +244,20 @@ def main_menu():
         print("3. Find a lesson by name")
         print("4. List all lessons")
         print("5. List all students present in a lesson")
-        print("6. Find a student by ID")
-        print("7. Update a student")
-        print("8. Delete a student")
-        print("9. Add a lecturer")
-        print("10. Create a lecturer")
-        print("11. Find a lecturer by name")
-        print("12. Find a lecturer by ID")
-        print("13. Update a lecturer")
-        print("14. Delete a lecturer")
+        print("6. Find a lesson by the id")
+        print("7. Update a lesson")
+        print("8. Delete a lesson")
+        print("9. Add a student")
+        print("10. Create a student")
+        print("11. Find a student by name")
+        print("12. List all students")
+        print("5. List all students present in a lesson")
+        print("6. Find a lesson by the id")
+        print("7. Update a lesson")
+        print("8. Delete a lesson")
         print("15. Exit")
 
-        choice = input("Enter your choice: ")
+        choice = str(input("Enter your choice: "))
 
         if choice == '1':
             add_lesson()
@@ -263,8 +265,50 @@ def main_menu():
             create_lesson()
         elif choice == '3':
             find_lesson_by_name()
-
-
+        elif choice == '4':
+            all_lessons()
+        elif choice == '5':
+            students_present()
+        elif choice == '6':
+            find_lesson_by_id()
+        elif choice =='7':
+            update_lesson()
+        elif choice == '8':
+            delete_lesson()
+        elif choice == '9':
+            delete_lesson()
+        elif choice == '10':
+            delete_lesson()
+        elif choice == '11':
+            delete_lesson()
+        elif choice == '12':
+            delete_lesson()
+        elif choice == '13':
+            delete_lesson()
+        elif choice == '14':
+            delete_lesson()
+        elif choice == '15':
+            delete_lesson()
+        elif choice == '16':
+            delete_lesson()
+        elif choice == '17':
+            delete_lesson()
+        elif choice == '18':
+            delete_lesson()
+        elif choice == '19':
+            delete_lesson()
+        elif choice == '20':
+            delete_lesson()
+        elif choice == '21':
+            delete_lesson()
+        elif choice == '22':
+            delete_lesson()
+        elif choice == '23':
+            delete_lesson()
+        elif choice == '24':
+            delete_lesson()
+        elif choice == '25':
+            delete_lesson()
 
 def exit_program():
     x = input("Are you sure you want to exit the program:(y/n)")
