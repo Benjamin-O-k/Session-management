@@ -1,6 +1,13 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from helpers import Base
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+engine = create_engine('sqlite:///classes.db', echo=False)
+Session = sessionmaker(bind=engine)
+session = Session()
+Base = declarative_base()
 
 class Lesson(Base):
     __tablename__ = 'lessons'
@@ -41,7 +48,7 @@ class Lesson(Base):
     #             CREATE TABLE IF NOT EXISTS departments (
     #             id INTEGER PRIMARY KEY,
     #             name TEXT,
-    #             location TEXT) 
+    #             location TEXT)
     #         """
     #         CURSOR.execute(sql)
     #         CONN.commit()

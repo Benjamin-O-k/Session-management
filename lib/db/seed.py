@@ -6,18 +6,42 @@ from helpers import session
 
 fake = Faker()
 
-new_lecturer = Lecturer(name=f"{fake.name()}", profession="Computer Science")
-session.add(new_lecturer)
+new_lecturer1 = Lecturer(name=f"{fake.name()}", profession="Computer Science")
+session.add(new_lecturer1)
+session.commit()
+
+new_lecturer2 = Lecturer(name=f"{fake.name()}", profession="Construction Management")
+session.add(new_lecturer2)
+session.commit()
+
+new_lecturer3 = Lecturer(name=f"{fake.name()}", profession="Medicine")
+session.add(new_lecturer3)
 session.commit()
 
 
-new_student = Student(name=f"{fake.name()}", unit="Vector Analysis")
-session.add(new_student)
+new_student1 = Student(name=f"{fake.name()}", unit="Vector Analysis")
+session.add(new_student1)
+session.commit()
+
+new_student2 = Student(name=f"{fake.name()}", unit="Pure Mathematics")
+session.add(new_student2)
+session.commit()
+
+new_student3 = Student(name=f"{fake.name()}", unit="Applied Mathematics")
+session.add(new_student3)
 session.commit()
 
 
-new_lesson = Lesson(title="Limits of a Function", location="HRD 101")
-session.add(new_lesson)
+new_lesson1 = Lesson(title="Bones", location="COPAS 201")
+session.add(new_lesson1)
+session.commit()
+
+new_lesson2 = Lesson(title="Number Theory", location="SCC 204")
+session.add(new_lesson2)
+session.commit()
+
+new_lesson3 = Lesson(title="Limits of a Function", location="HRD 101")
+session.add(new_lesson3)
 session.commit()
 
 
