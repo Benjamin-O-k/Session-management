@@ -30,7 +30,7 @@ def create_lesson():
 
 def find_lesson_by_name():
     name = input("Enter lesson name you want to search:\n ")
-    lesson = session.query(Lesson).filter(Student.name.like(str(name)))
+    lesson = session.query(Lesson).filter_by(Student.name.like(str(name)))
     if lesson:
         print(lesson)
     else:
@@ -48,7 +48,7 @@ def students_present():
 
 def find_lesson_by_id():
     id_ = int(input("Enter lesson ID: \n"))
-    lesson = session.query(Lesson).filter(Student.id.like(id_))
+    lesson = session.query(Lesson).filter_by(Student.id.like(id_))
     if lesson:
         print(lesson)
     else:
@@ -65,7 +65,7 @@ def update_lesson():
             lesson.title = title
             lesson.location = location
             lesson.time = time
-            session.query(Lesson).filter(Lesson.id == id_).update({
+            session.query(Lesson).filter_by(Lesson.id == id_).update({
                 Lesson.title: title,
                 Lesson.location: location,
                 Lesson.time: time,
@@ -79,7 +79,7 @@ def update_lesson():
 def delete_lesson():
     id_ = int(input("Enter lesson ID to delete: \n"))
 
-    query = session.query(Lesson).filter(Lesson.id == id_)
+    query = session.query(Lesson).filter_by(Lesson.id == id_)
     if query:
         try:
             first_lesson = query.first()
@@ -107,7 +107,7 @@ def create_student():
 
 def find_student_by_name():
     name = input("Enter student name: ")
-    student = session.query(Student).filter(Student.name.like(name))
+    student = session.query(Student).filter_by(Student.name.like(name))
     if student:
         print(student)
     else:
@@ -115,7 +115,7 @@ def find_student_by_name():
 
 def find_student_by_id():
     id_ = int(input("Enter student ID: "))
-    student = session.query(Student).filter(Student.id.like(id_))
+    student = session.query(Student).filter_by(Student.id.like(id_))
     if student:
         print(student)
     else:
@@ -130,7 +130,7 @@ def update_student():
             unit = str(input("Enter new unit: "))
             student.name = name
             student.unit = unit
-            session.query(Student).filter(Student.id == id_).update({
+            session.query(Student).filter_by(Student.id == id_).update({
                 Student.name: name,
                 Student.unit: unit,
             })
@@ -143,7 +143,7 @@ def update_student():
 def delete_student():
     id_ = int(input("Enter student ID to delete: "))
 
-    query = session.query(Student).filter(Student.id == id_)
+    query = session.query(Student).filter_by(Student.id == id_)
     if query:
         try:
             first_student = query.first()
@@ -182,7 +182,7 @@ def create_lecturer():
 
 def find_lecturer_by_name():
     name = input("Enter lecturer name: ")
-    lecturer = session,query(Lecturer).filter(Student.name.like(name))
+    lecturer = session.query(Lecturer).filter_by(Student.name.like(name))
     if lecturer:
         print(lecturer)
     else:
@@ -190,7 +190,7 @@ def find_lecturer_by_name():
 
 def find_lecturer_by_id():
     id_ = int(input("Enter lecturer ID: "))
-    lecturer = session.query(Lecturer).filter(Student.id.like(id_))
+    lecturer = session.query(Lecturer).filter_by(Student.id.like(id_))
     if lecturer:
         print(lecturer)
     else:
@@ -205,7 +205,7 @@ def update_lecturer():
             profession = str(input("Enter new profession: "))
             lecturer.name = name
             lecturer.profession = profession
-            session.query(Lecturer).filter(Lecturer.id == id_).update({
+            session.query(Lecturer).filter_by(Lecturer.id == id_).update({
                 Lecturer.name: name,
                 Lecturer.profession: profession,
             })
@@ -218,7 +218,7 @@ def update_lecturer():
 def delete_lecturer():
     id_ = int(input("Enter lecturer ID to delete: "))
 
-    query = session.query(Lecturer).filter(Lecturer.id == id_)
+    query = session.query(Lecturer).filter_by(Lecturer.id == id_)
     if query:
         try:
             first_lecturer = query.first()
@@ -326,4 +326,4 @@ def exit_program():
         exit()
     else:
         print("Program will continue...")
-        main_menu()
+        menu()

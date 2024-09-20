@@ -1,2 +1,8 @@
-if __name__ == '__main__':
-    print(1)
+from helpers import (menu)
+
+
+def main():
+    menu()
+
+if __name__ == "__main__":
+    main()
