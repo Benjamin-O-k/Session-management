@@ -1,33 +1,37 @@
-from lib.db.models.student import Student
-from lib.db.models.lecturer import Lecturer
-from lib.db.models.lesson import Lesson
-from faker import Faker
-from helpers import session
+from ..lib.helpers import session
+import sys
+import os
 
-fake = Faker()
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-new_lecturer1 = Lecturer(name=f"{fake.name()}", profession="Computer Science")
+from db.student import Student
+from lecturer import Lecturer
+from lesson import Lesson
+
+
+
+new_lecturer1 = Lecturer(name="Dave", profession="Computer Science")
 session.add(new_lecturer1)
 session.commit()
 
-new_lecturer2 = Lecturer(name=f"{fake.name()}", profession="Construction Management")
+new_lecturer2 = Lecturer(name="Boondocks", profession="Construction Management")
 session.add(new_lecturer2)
 session.commit()
 
-new_lecturer3 = Lecturer(name=f"{fake.name()}", profession="Medicine")
+new_lecturer3 = Lecturer(name="Reddington", profession="Medicine")
 session.add(new_lecturer3)
 session.commit()
 
 
-new_student1 = Student(name=f"{fake.name()}", unit="Vector Analysis")
+new_student1 = Student(name="John", unit="Vector Analysis")
 session.add(new_student1)
 session.commit()
 
-new_student2 = Student(name=f"{fake.name()}", unit="Pure Mathematics")
+new_student2 = Student(name="Jane", unit="Pure Mathematics")
 session.add(new_student2)
 session.commit()
 
-new_student3 = Student(name=f"{fake.name()}", unit="Applied Mathematics")
+new_student3 = Student(name="Ben", unit="Applied Mathematics")
 session.add(new_student3)
 session.commit()
 
@@ -57,4 +61,4 @@ for lecturer in lecturers:
     print(f'Lecturer: {lecturer.name}, {lecturer.profession}')
 
 for lesson in lessons:
-    print(f'Lesson: {lesson.title} ,{lesson.loction} ,{lesson.time}')
+    print(f'Lesson: {lesson.title} ,{lesson.location}')

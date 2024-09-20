@@ -1,17 +1,7 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-from db.models.lecturer import Lecturer
-from db.models.lesson import Lesson
-from db.models.student import Student
-
-
-
-# Define the database engine
-engine = create_engine('sqlite:///classes.db', echo=False)
-Session = sessionmaker(bind=engine)
-session = Session()
-Base = declarative_base()
+from lib.db.lecturer import Lecturer
+from lib.db.lesson import Lesson
+from lib.db.student import Student
+from debug import Base,session
 
 
 # Lesson functions
