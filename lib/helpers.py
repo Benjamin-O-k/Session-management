@@ -1,7 +1,8 @@
-from lib.db.lecturer import Lecturer
-from lib.db.lesson import Lesson
-from lib.db.student import Student
-from debug import Base,session
+from lecturer import Lecturer
+from lesson import Lesson
+from student import Student
+from db import session
+from db import Base
 
 
 # Lesson functions
@@ -9,8 +10,10 @@ def create_lesson():
     title = str(input("Please enter the title of the class:\n "))
     location = str(input("Please provide the location of the lesson:\n "))
     time =str(input("Please provide the time of the class:\n "))
+    lec_id = int(input("Enter the lecture id:\n"))
+    students_id = int(input("Enter student id:\n"))
     try:
-        lesson = Lesson(title=title,location=location,time=time)
+        lesson = Lesson(title=title,location=location,time=time,lec_id=lec_id,students_id=students_id)
         session.add(lesson)
         session.commit()
 
@@ -234,7 +237,7 @@ def lec_students():
 
 
 # Main menu
-def menu():
+def items():
     while True:
         print("\nChoose an option:")
         print("1. Create a lesson")
@@ -316,4 +319,4 @@ def exit_program():
         exit()
     else:
         print("Program will continue...")
-        menu()
+        items()

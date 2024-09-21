@@ -1,8 +1,8 @@
-from helpers import (menu)
+from helpers import items
 
 
 def main():
-    menu()
+    items()
 
 if __name__ == "__main__":
     main()

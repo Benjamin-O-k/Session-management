@@ -1,12 +1,13 @@
-from ..lib.helpers import session
 import sys
 import os
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from db.student import Student
+from student import Student
 from lecturer import Lecturer
 from lesson import Lesson
+from helpers import session
+
 
 
 

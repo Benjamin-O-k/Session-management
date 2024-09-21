@@ -27,6 +27,7 @@ def upgrade():
     op.create_table('students',
         sa.Column('id', sa.Integer(), nullable=False),
         sa.Column('name', sa.String(length=50), nullable=True),
+        sa.Column('unit', sa.String(length=50), nullable=True),
         sa.PrimaryKeyConstraint('id')
     )
     op.create_table('lessons',

@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from lib.debug import Base
+from db import Base
 
 
 class Lecturer(Base):

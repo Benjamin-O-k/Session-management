@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from lib.debug import Base
-
+from db import Base
 
 class Lesson(Base):
     __tablename__ = 'lessons'
@@ -14,11 +13,11 @@ class Lesson(Base):
 
     # foreign keys for the lecturer and student table
     lec_id = Column(Integer, ForeignKey('lecturers.id'))
-    student_id = Column(Integer, ForeignKey('students.id'))
+    lecturer = relationship('Lecturer', back_populates='lessons')
 
     # relationships between lecturers and students with lessons
-    students = relationship('Student', back_populates='lessons')
-    lecturers = relationship('Lecturer', back_populates='lessons')
+    students_id = Column(Integer, ForeignKey('students.id'))
+    student = relationship('Student', back_populates='lessons')
 
     # list all students that were at the lesson
     def all_students(self):
