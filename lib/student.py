@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String,ForeignKey
 from sqlalchemy.orm import relationship
 from db import Base
 
@@ -10,9 +10,10 @@ class Student(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     unit = Column(String)
+    lesson_id = Column(Integer, ForeignKey('lessons.id'))
 
     # defining the relationship between lessons and students
-    lessons = relationship('Lesson', back_populates='student')
+    lessons = relationship('Lesson', back_populates='students', foreign_keys = [lesson_id])
 
     # list lessons the student attended
     def all_classes(self):

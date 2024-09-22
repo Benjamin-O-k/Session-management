@@ -27,7 +27,9 @@ The lib folder contains python files where the classes have ben defined.
 Students and lectures have a many to many relationship through the join table lesson
 The lessons have a many to one relationship with the students and the lectures
 
+## Running the system
 
-Author
-[Benjamin Okello]
-
+=====================
+To run the system, you need to have python installed on your computer.
+Then run the command `python cli.py` or `python3 cli.py`
+Here you will find the menu of the system provided

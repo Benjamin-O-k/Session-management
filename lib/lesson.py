@@ -17,7 +17,7 @@ class Lesson(Base):
 
     # relationships between lecturers and students with lessons
     students_id = Column(Integer, ForeignKey('students.id'))
-    student = relationship('Student', back_populates='lessons')
+    students = relationship('Student', back_populates='lessons', foreign_keys = 'lesson_id')
 
     # list all students that were at the lesson
     def all_students(self):

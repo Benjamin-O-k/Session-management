@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from db import Base
 
@@ -11,12 +11,13 @@ class Lecturer(Base):
     name = Column(String)
     profession = Column(String)
 
+
     # defining the relationship between lessons and lecturer
-    lessons = relationship('Lesson', back_populates='lecturer')
+    lessons = relationship('Lesson', back_populates='lecturer')#back_populates
 
     # list all lessons the lecture has been to
     def all_classes(self):
-        return self.lessons()
+        return self.lessons
 
     # list all students who have attended class
     def all_students(self):
