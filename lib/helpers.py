@@ -147,11 +147,6 @@ def delete_student():
     else:
         print(f"The student with ID {id_} has not been found. Please try again.")
 
-def stud_lecturer():
-    print("All students and their lecturers:")
-    students = session.query(Student).all()
-    for student in students:
-        print(f"{student.name}: {student.lecturer.name if student.lecturer else 'No lecturer assigned'}")
 
 def stud_class():
     print("All students and their lessons:")
@@ -254,16 +249,15 @@ def items():
         print("10. Find a student by ID")
         print("11. Update a student")
         print("12. Delete a student")
-        print("13. List all students and their lecturers")
-        print("14. List all students and their lessons")
-        print("15. Create a lecturer")
-        print("16. Find a lecturer by name")
-        print("17. Find a lecturer by ID")
-        print("18. Update a lecturer")
-        print("19. Delete a lecturer")
-        print("20. List all lecturers and their classes")
-        print("21. List all lecturers and their students")
-        print("22. Exit")
+        print("13. List all students and their lessons")
+        print("14. Create a lecturer")
+        print("15. Find a lecturer by name")
+        print("16. Find a lecturer by ID")
+        print("17. Update a lecturer")
+        print("18. Delete a lecturer")
+        print("19. List all lecturers and their classes")
+        print("20. List all lecturers and their students")
+        print("21. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -293,24 +287,22 @@ def items():
         elif choice == '12':
             delete_student()
         elif choice == '13':
-            stud_lecturer()
-        elif choice == '14':
             stud_class()
-        elif choice == '15':
+        elif choice == '14':
             create_lecturer()
-        elif choice == '16':
+        elif choice == '15':
             find_lecturer_by_name()
-        elif choice == '17':
+        elif choice == '16':
             find_lecturer_by_id()
-        elif choice == '18':
+        elif choice == '17':
             update_lecturer()
-        elif choice == '19':
+        elif choice == '18':
             delete_lecturer()
-        elif choice == '20':
+        elif choice == '19':
             lec_classes()
-        elif choice == '21':
+        elif choice == '20':
             lec_students()
-        elif choice == '22':
+        elif choice == '21':
             exit_program()
         else:
             print("Invalid choice. Please try again.")
