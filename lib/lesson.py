@@ -6,7 +6,7 @@ from db import Base
 student_lesson = Table(
     'student_lesson', Base.metadata,
     Column('student_id', Integer, ForeignKey('students.id')),
-    Column('lesson_id', Integer, ForeignKey('lessons.id'))
+    Column('lesson_id', Integer, ForeignKey('lessons.id')),extend_existing=True,
 )
 
 class Lesson(Base):
