@@ -2,14 +2,11 @@
 
 ## Overview
 
-===============================================================
 
 The Session Management System is a Python-based application that manages sessions for students and lecturers. The system allows for the creation of students, lecturers, and lessons.
 It also enables the management of sessions, including adding, removing, and updating sessions.
 
 ## Directory Structure
-
-===============================================================
 
 The lib folder contains python files where the classes have ben defined.
 
@@ -24,14 +21,12 @@ The lib folder contains python files where the classes have ben defined.
 
 ## Relationships
 
-===============================================================
 
 Students and lectures have a many to many relationship through the join table lesson
 The lessons have a many to one relationship with the students and the lectures
 
 ## Running the system
 
-=======================================================================
 
 To run the system, you need to have python installed on your computer.
 Then run the command `python cli.py` or `python3 cli.py`
