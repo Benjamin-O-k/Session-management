@@ -1,26 +1,24 @@
-from sqlalchemy import Column, Integer, String,ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from db import Base
-
 
 class Student(Base):
     __tablename__ = 'students'
 
-    # define the attributes
     id = Column(Integer, primary_key=True)
-    name = Column(String)
-    unit = Column(String)
+    name = Column(String, nullable=False)
+    unit = Column(String, nullable=False)
     lesson_id = Column(Integer, ForeignKey('lessons.id'))
 
-    # defining the relationship between lessons and students
-    lessons = relationship('Lesson', back_populates='students', foreign_keys = [lesson_id])
+    # Relationship definitions
+    lessons = relationship('Lesson', back_populates='students', foreign_keys=[lesson_id])
 
-    # list lessons the student attended
     def all_classes(self):
-        return self.lessons()
+        """Return all lessons the student is enrolled in."""
+        return self.lessons
 
-    # list all lecturers that have been to students class
     def all_lecturers(self):
+        """Return all lecturers for the lessons the student is enrolled in."""
         return [lesson.lecturer for lesson in self.lessons]
 
     def __repr__(self):
