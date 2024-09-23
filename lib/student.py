@@ -3,7 +3,8 @@ from sqlalchemy.orm import relationship
 from db import Base
 
 # Association table for many-to-many relationship
-student_lesson = Table('student_lesson', Base.metadata,
+student_lesson = Table(
+    'student_lesson', Base.metadata,
     Column('student_id', Integer, ForeignKey('students.id')),
     Column('lesson_id', Integer, ForeignKey('lessons.id'))
 )
