@@ -1,34 +1,43 @@
-def students_present():
-    lessons = session.query(Lesson).all()
-    for lesson in lessons:
-        students = lesson.students  # assuming Lesson class has a students attribute
-        for student in students:
-            print(student)
+class StudentError(Exception):
+    """Base class for exceptions related to student operations."""
+    pass
 
-def stud_lecturer():
-    print("All students and their lecturers")
-    students = session.query(Student).all()
-    for student in students:
-        print(f"{student.name}: {student.lecturer}")
+class StudentNotFoundError(StudentError):
+    """Raised when a student is not found in the database."""
+    def __init__(self, student_id):
+        super().__init__(f"Student with ID {student_id} not found.")
 
-def stud_class():
-    print("All students and their lessons:")
-    students = session.query(Student).all()
-    for student in students:
-        print(f"{student.name}: {student.lesson}")
+class DuplicateStudentError(StudentError):
+    """Raised when trying to add a student that already exists."""
+    def __init__(self, student_name):
+        super().__init__(f"Student '{student_name}' already exists.")
 
-def stud_class():#many to one relationship between students and lessons
-    print("All students and their lessons:")
-    students = session.query(Student).join(Lesson).all()
-    for student in students:
-        print(f"{student.name}: {student.lesson.name}")
+class LessonError(Exception):
+    """Base class for exceptions related to lesson operations."""
+    pass
 
+class LessonNotFoundError(LessonError):
+    """Raised when a lesson is not found in the database."""
+    def __init__(self, lesson_id):
+        super().__init__(f"Lesson with ID {lesson_id} not found.")
 
-# might be correct
-def stud_class():
-    print("All students and their lessons:")
-    students = session.query(Student).all()
-    for student in students:
-        print(f"{student.name}:")
-        for lesson in student.lessons:
-            print(f"  - {lesson.name}")
+class LecturerError(Exception):
+    """Base class for exceptions related to lecturer operations."""
+    pass
+
+class LecturerNotFoundError(LecturerError):
+    """Raised when a lecturer is not found in the database."""
+    def __init__(self, lecturer_id):
+        super().__init__(f"Lecturer with ID {lecturer_id} not found.")
+
+class DatabaseError(Exception):
+    """General class for database-related exceptions."""
+    def __init__(self, message):
+        super().__init__(f"Database error: {message}")
+
+# Example usage within a function
+def find_student(student_id):
+    student = session.query(Student).filter_by(id=student_id).first()
+    if not student:
+        raise StudentNotFoundError(student_id)
+    return student
