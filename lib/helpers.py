@@ -227,12 +227,6 @@ def lec_classes():
     for lecturer in lecturers:
         print(f"{lecturer.name}: {[lesson.title for lesson in lecturer.lessons]}")
 
-def lec_students():
-    print("All lecturers and their students:")
-    lecturers = session.query(Lecturer).all()
-    for lecturer in lecturers:
-        print(f"{lecturer.name}: {[student.name for student in lecturer.students]}")
-
 # Main menu
 def items():
     while True:
@@ -256,8 +250,7 @@ def items():
         print("17. Update a lecturer")
         print("18. Delete a lecturer")
         print("19. List all lecturers and their classes")
-        print("20. List all lecturers and their students")
-        print("21. Exit")
+        print("20. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -301,8 +294,6 @@ def items():
         elif choice == '19':
             lec_classes()
         elif choice == '20':
-            lec_students()
-        elif choice == '21':
             exit_program()
         else:
             print("Invalid choice. Please try again.")
