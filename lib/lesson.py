@@ -2,6 +2,12 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from db import Base
 
+# Association table
+student_lesson = Table('student_lesson', Base.metadata,
+    Column('student_id', Integer, ForeignKey('students.id')),
+    Column('lesson_id', Integer, ForeignKey('lessons.id'))
+)
+
 class Lesson(Base):
     __tablename__ = 'lessons'
 
@@ -15,7 +21,7 @@ class Lesson(Base):
     lecturer = relationship('Lecturer', back_populates='lessons')
 
     # Relationship for students
-    students = relationship('Student', back_populates='lessons', foreign_keys='Student.lesson_id')
+    students = relationship('Student', secondary=student_lesson, back_populates='lessons')
 
     def all_students(self):
         """Return all students enrolled in the lesson."""
