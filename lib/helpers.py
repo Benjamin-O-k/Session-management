@@ -228,81 +228,118 @@ def lec_classes():
         print(f"{lecturer.name}: {[lesson.title for lesson in lecturer.lessons]}")
 
 # Main menu
-def items():
-    while True:
-        print("\nChoose an option:")
-        print("1. Create a lesson")
-        print("2. Find a lesson by name")
-        print("3. List all lessons")
-        print("4. List all students present in a lesson")
-        print("5. Find a lesson by ID")
-        print("6. Update a lesson")
-        print("7. Delete a lesson")
-        print("8. Create a student")
-        print("9. Find a student by name")
-        print("10. Find a student by ID")
-        print("11. Update a student")
-        print("12. Delete a student")
-        print("13. List all students and their lessons")
-        print("14. Create a lecturer")
-        print("15. Find a lecturer by name")
-        print("16. Find a lecturer by ID")
-        print("17. Update a lecturer")
-        print("18. Delete a lecturer")
-        print("19. List all lecturers and their classes")
-        print("20. Exit")
+def home():
+    print("\n")
+    print("\t\t\t\t ' ********** WELCOME TO SESSION MANAGEMENT SYSTEM ********** ' \n")
+    print("CHOOSE THE SYB MENU YOU WANT TO GO TO\n")
+    print("1. Lessons\n")
+    print("2. students\n")
+    print("3. Lecturers\n")
+    print("0. Exit")
 
-        choice = input("Enter your choice: ")
+    menu = int(input("Enter your choice: \n"))
 
-        if choice == '1':
-            create_lesson()
-        elif choice == '2':
-            find_lesson_by_name()
-        elif choice == '3':
-            all_lessons()
-        elif choice == '4':
-            lesson_id = int(input("Enter lesson ID to list students: "))
-            students_present(lesson_id)
-        elif choice == '5':
-            find_lesson_by_id()
-        elif choice == '6':
-            update_lesson()
-        elif choice == '7':
-            delete_lesson()
-        elif choice == '8':
-            create_student()
-        elif choice == '9':
-            find_student_by_name()
-        elif choice == '10':
-            find_student_by_id()
-        elif choice == '11':
-            update_student()
-        elif choice == '12':
-            delete_student()
-        elif choice == '13':
-            stud_class()
-        elif choice == '14':
-            create_lecturer()
-        elif choice == '15':
-            find_lecturer_by_name()
-        elif choice == '16':
-            find_lecturer_by_id()
-        elif choice == '17':
-            update_lecturer()
-        elif choice == '18':
-            delete_lecturer()
-        elif choice == '19':
-            lec_classes()
-        elif choice == '20':
-            exit_program()
-        else:
-            print("Invalid choice. Please try again.")
-
-def exit_program():
-    x = input("Are you sure you want to exit the program? (y/n): ")
-    if x.lower() == 'y':
+    if menu == 1:
+        lessons()
+    elif menu == 2:
+        students()
+    elif menu == 3:
+        lecturers()
+    elif menu ==0:
         print("Exiting the program...")
         exit()
     else:
-        print("Program will continue...")
-        items()
+        print("Invalid choice. Please try again.")
+
+def lessons():
+    print("\t\t\t\t******* Welcome to the lessons menu.**********\n")
+    print("1. Create a lesson")
+    print("2. Find a lesson by name")
+    print("3. List all lessons")
+    print("4. List all students present in a lesson")
+    print("5. Find a lesson by ID")
+    print("6. Update a lesson")
+    print("7. Delete a lesson")
+    print("98. Back to main menu")
+
+    choice = input("Please select an option from the list above:\n")
+
+    if choice == '1':
+        create_lesson()
+    elif choice == '2':
+        find_lesson_by_name()
+    elif choice == '3':
+        all_lessons()
+    elif choice == '4':
+        lesson_id = int(input("Enter lesson ID to list students: "))
+        students_present(lesson_id)
+    elif choice == '5':
+        find_lesson_by_id()
+    elif choice == '6':
+        update_lesson()
+    elif choice == '7':
+        delete_lesson()
+    elif choice == '98':
+        home()
+    else:
+        print("Invalid choice. Please try again.")
+
+def students():
+    print("\t\t\t\t **********Welcome to the students menu.*********\n")
+    print("8. Create a student")
+    print("9. Find a student by name")
+    print("10. Find a student by ID")
+    print("11. Update a student")
+    print("12. Delete a student")
+    print("13. List all students and their lessons")
+    print("98. Back to main menu")
+
+    choice = input("Please select an option from the list above:\n")
+    if choice == '8':
+            create_student()
+    elif choice == '9':
+            find_student_by_name()
+    elif choice == '10':
+            find_student_by_id()
+    elif choice == '11':
+            update_student()
+    elif choice == '12':
+            delete_student()
+    elif choice == '13':
+            stud_class()
+    elif choice == "98":
+        home()
+    else:
+        print("Invalid choice. Please try again.")
+
+def lecturers():
+    print("\t\t\t\t ********Welcome to the lecturer menu.********\n")
+    print("14. Create a lecturer")
+    print("15. Find a lecturer by name")
+    print("16. Find a lecturer by ID")
+    print("17. Update a lecturer")
+    print("18. Delete a lecturer")
+    print("19. List all lecturers and their classes")
+    print("98. Back to main menu")
+
+    choice = input("\nPlease select an option from the list above:\n")
+    if choice == '14':
+        create_lecturer()
+    elif choice == '15':
+        find_lecturer_by_name()
+    elif choice == '16':
+        find_lecturer_by_id()
+    elif choice == '17':
+        update_lecturer()
+    elif choice == '18':
+        delete_lecturer()
+    elif choice == '19':
+        lec_classes()
+    else:
+        print("Invalid choice. Please try again.")
+
+def items():
+    home()
+    lessons()
+    students()
+    lecturers()

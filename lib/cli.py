@@ -1,8 +1,8 @@
 from helpers import items
 
-
 def main():
-    items()
+    while True:
+        items()
 
 if __name__ == "__main__":
     main()
