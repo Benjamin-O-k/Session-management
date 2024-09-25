@@ -21,13 +21,18 @@ The lib folder contains python files where the classes have ben defined.
 
 ## Relationships
 
-
 Students and lectures have a many to many relationship through the join table lesson
 The lessons have a many to one relationship with the students and the lectures
 
 ## Running the system
 
-
 To run the system, you need to have python installed on your computer.
 Then run the command `python cli.py` or `python3 cli.py`
 Here you will find the menu of the system provided
+
+### Exception handling.
+
+- In the event the functions upgrade and downgrade in `env.py` do not work,use the code provided in ***special.py*** to fill in the functions in the env.py file.
+- Uncomment the code in special.py then replace the code in env.py with what is given in special.py to the respective functions in env.py
+- After replacing the contents of env.py with the functions provided in special.py,run the command `alembic upgrade head` in your terminal so as to create the table.
+- Incase of any required modification of the tables in the database, run the command `alembic downgrade head`
