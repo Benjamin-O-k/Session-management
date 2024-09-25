@@ -3,9 +3,9 @@ import os
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from student import Student
-from lecturer import Lecturer
-from lesson import Lesson
+from models.student import Student
+from models.lecturer import Lecturer
+from models.lesson import Lesson
 from helpers import session
 
 

@@ -2,7 +2,7 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-from lib.db import Base
+from db import Base
 # from lib import lecturer
 # from lib import lesson
 # from lib import student

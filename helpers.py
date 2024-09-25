@@ -1,6 +1,6 @@
-from lecturer import Lecturer
-from lesson import Lesson
-from student import Student
+from models.lecturer import Lecturer
+from models.lesson import Lesson
+from models.student import Student
 from db import session
 import sqlalchemy
 
