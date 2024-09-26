@@ -32,7 +32,7 @@ Here you will find the menu of the system provided
 
 ### Exception handling.
 
-- In the event the functions upgrade and downgrade in `env.py` do not work,use the code provided in ***special.py*** to fill in the functions in the env.py file.
-- Uncomment the code in special.py then replace the code in env.py with what is given in special.py to the respective functions in env.py
-- After replacing the contents of env.py with the functions provided in special.py,run the command `alembic upgrade head` in your terminal so as to create the table.
+- In the event the functions upgrade and downgrade in `versions` do not work,use the code provided in ***special.py*** to fill in the functions in the versions file.
+- Uncomment the code in special.py then replace the code in versions with what is given in special.py to the ***respective functions*** in versions
+- After replacing the contents of versions with the functions provided in special.py,run the command `alembic upgrade head` in your terminal so as to create the table.
 - Incase of any required modification of the tables in the database, run the command `alembic downgrade head`
