@@ -3,9 +3,14 @@ from logging.config import fileConfig
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from db import Base
-# from lib import lecturer
-# from lib import lesson
-# from lib import student
+# imports added
+import sys
+import os
+# Make sure Alembic can find the models directory
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from models.student import Student
+from models.lesson import Lesson
+from models.lecturer import Lecturer
 from alembic import context
 
 # this is the Alembic Config object, which provides
